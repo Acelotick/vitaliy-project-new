@@ -1,0 +1,3 @@
+regcmd('help', (params) => { const arr = [`\n----- Commands, count (${Object.keys(getcommands()).length}) and (${close_input.length + batch_input.length}) dev`]; Object.values(getcommands()).forEach(cmd => arr.push(`${cmd.show === false ? '/' : ''}${cmd.name}${cmd.args.length ? ' ' + cmd.args.join(' ') : ''}${cmd.desc ? ` >> ${cmd.desc}` : ''}`)); arr.push(' '); imitate(types.scolor)([['#add8e6']], arr.join('\n')) }, 'Help command')
+close_input.forEach((a => regcmd(a, () => {}, 'Default close command', [], true)))
+batch_input.forEach((a => regcmd(a, () => {}, 'Default execute command', ['[Command]'], true)))
